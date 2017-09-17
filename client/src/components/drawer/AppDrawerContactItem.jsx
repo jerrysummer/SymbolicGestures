@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { Card } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
+import DatePicker from 'material-ui/DatePicker';
 
 import styles from '../../../styles/jerryStyleBox.css';
 
@@ -15,6 +16,7 @@ class AppDrawerContactItem extends React.Component {
     this.handleDeleteContact = this.handleDeleteContact.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.openDatePicker = this.openDatePicker.bind(this);
   }
 
   handleChange(event, date) {
@@ -31,6 +33,9 @@ class AppDrawerContactItem extends React.Component {
   handleEdit(event) {
    console.log('edit the contact with this id:' , this.props.contact.id)
   }
+  openDatePicker(){
+    this.refs.datepicker.openDialog()
+  }
 
   render() {
     return (
@@ -46,10 +51,17 @@ class AppDrawerContactItem extends React.Component {
               <Card.Description>{this.props.contact.email}</Card.Description>
               <Card.Description>{this.props.contact.phone}</Card.Description>
               <Card.Description>{"Last contact: " + this.props.contact.last_contact_date.slice(0,10)}</Card.Description>
-              {/* <DatePicker
-                 selected={this.state.controlledDate}
-                 onChange={this.handleChange}
-              /> */}
+
+              <Icon link name='calendar' onClick={this.openDatePicker}/>
+
+              <DatePicker
+                ref='datepicker'
+                style={{display: 'none'}}
+                hintText="Controlled Date Input"
+                value={this.state.controlledDate}
+                onChange={this.handleChange}
+              />
+
             </Card.Content>
           </Card>
       </div>
