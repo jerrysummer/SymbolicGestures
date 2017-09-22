@@ -10,6 +10,7 @@ import Connect from './components/Connect/Connect.jsx';
 
 import PersonalAnalytics from './components/Analytics/PersonalAnalytics.jsx';
 import FirstDateAppliedForJob from './components/Analytics/FirstDateAppliedForJob.jsx';
+import ApplicationsFunnelChart from './components/Analytics/ApplicationsFunnelChart.jsx';
 
 const seanStyleBox = require('./../styles/seanStyleBox.css');
 
@@ -505,6 +506,7 @@ class App extends React.Component {
                         applicationCount={applicationCount}
                         diffBtwLastAndFirstDate={diffBtwLastAndFirstDate}
                       />
+                      <ApplicationsFunnelChart />
                       {this.state.dateAppliedCountDataForGraph.map((data, idx) => {
                         let intMonth = data[0].appliedDate.slice(5, 7);
                         return (
