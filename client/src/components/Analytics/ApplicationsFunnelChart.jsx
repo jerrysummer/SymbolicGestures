@@ -27,13 +27,12 @@ export default class ApplicationsFunnelChart extends React.Component{
       },
     };
     axios.get('/api/applications')
-      .then((applicationData) => {
-        let applications = applicationData.data;
-        let funnel = {};
-        for (var i = 0; i < applications.length; i++) {
-          funnel[applications[i].stage] = applications[i].stage + 1 || 1;
-        }
-        })
+      .then((applications) => {
+        let stages = []
+        applications.data.forEach((application) => stages.push(application.stage));
+        return stages
+      })
+      .then((data) => console.log(data))
 
     const chart = new D3Funnel('#funnel');
     chart.draw(data, options);
