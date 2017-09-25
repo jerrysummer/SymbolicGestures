@@ -56,7 +56,11 @@ export default class ApplicationsFunnelChart extends React.Component{
           block:{
             dynamicHeight: true,
             minHeight: 15,
+            highlight: true
           },
+          chart:{
+            width: 600,
+          }
         };
         const chart = new D3Funnel('#funnel');
         chart.draw(data, options);
