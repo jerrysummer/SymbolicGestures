@@ -16,7 +16,7 @@ const roundNumber = (num, scale) => {
 }
 
 const FirstDateAppliedForJob = (props) => {
-  let segmentStyle = { margin: '1%', marginBottom: '200px' };
+  let segmentStyle = { margin: '1%', marginBottom: '50px' };
   let dateStyle = { paddingTop: '4%' };
   return (
     <Segment style={segmentStyle}>

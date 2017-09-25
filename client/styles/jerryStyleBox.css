@@ -8,3 +8,9 @@
   align-self: center;
   min-height: 200px;
 }
+
+.funnel {
+  width: 300px;
+  height: 100px;
+  border: 1px solid blue;
+}
